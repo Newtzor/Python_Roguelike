@@ -32,7 +32,15 @@ class Model(object):
         self.eventManager.registerListener(self)
 
     class Map(object):
-        def Build(self):
+        
+        self.mapArray = []
+        
+        def buildMap(self, xSize, ySize):
+            for x in range(0, xSize):
+                row = []
+                for y in range(0, ySize):
+                    row.append(0)
+                mapArray.append(row)
     
 #Controller class to handle input events from user
 class Controller(object):
@@ -61,6 +69,11 @@ class Controller(object):
 
 #View class to update client view in accordance with model
 class View(object):
+    def __init__(self, eventManager):
+        self.eventManager = eventManager
+        self.eventManager.registerListener(self)
+        
+    
 
 def main():
     eventManager = EventManager()
